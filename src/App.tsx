@@ -196,58 +196,61 @@ const TypingText: React.FC<{ children: ReactNode, className?: string, tag?: 'h1'
 };
 
 const NetworkVisual = () => {
+  const [syncStatus, setSyncStatus] = useState(42.8);
+  
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setSyncStatus(prev => {
+        const delta = (Math.random() - 0.5) * 0.2;
+        return parseFloat((prev + delta).toFixed(1));
+      });
+    }, 2000);
+    return () => clearInterval(interval);
+  }, []);
+
   const nodes = [
-    { x: 20, y: 30, size: 4, delay: 0, type: 'core' },
-    { x: 40, y: 70, size: 8, delay: 0.2, type: 'edge' },
-    { x: 60, y: 20, size: 6, delay: 0.4, type: 'core' },
-    { x: 80, y: 60, size: 10, delay: 0.1, type: 'edge' },
-    { x: 50, y: 45, size: 14, delay: 0.3, type: 'hub' },
-    { x: 15, y: 80, size: 6, delay: 0.5, type: 'edge' },
-    { x: 85, y: 15, size: 4, delay: 0.2, type: 'edge' },
-    { x: 30, y: 15, size: 3, delay: 0.6, type: 'edge' },
-    { x: 70, y: 85, size: 5, delay: 0.7, type: 'edge' },
-    { x: 10, y: 50, size: 7, delay: 0.8, type: 'core' },
-    { x: 90, y: 40, size: 4, delay: 0.9, type: 'edge' },
-    { x: 35, y: 40, size: 5, delay: 1.1, type: 'edge' },
-    { x: 65, y: 55, size: 6, delay: 1.2, type: 'edge' },
-    { x: 25, y: 60, size: 4, delay: 1.3, type: 'edge' },
-    { x: 75, y: 30, size: 5, delay: 1.4, type: 'edge' },
+    { id: 0, x: 20, y: 30, size: 4, delay: 0, type: 'core', label: 'IP_CORE' },
+    { id: 1, x: 40, y: 70, size: 8, delay: 0.2, type: 'edge', label: 'DIST_NODE' },
+    { id: 2, x: 60, y: 20, size: 6, delay: 0.4, type: 'core', label: 'STRAT_HUB' },
+    { id: 3, x: 80, y: 60, size: 10, delay: 0.1, type: 'edge', label: 'COMM_ENGINE' },
+    { id: 4, x: 50, y: 45, size: 14, delay: 0.3, type: 'hub', label: 'KYNZO_OS' },
+    { id: 5, x: 15, y: 80, size: 6, delay: 0.5, type: 'edge', label: 'MEDIA_SYNC' },
+    { id: 6, x: 85, y: 15, size: 4, delay: 0.2, type: 'edge', label: 'GLOBAL_REACH' },
+    { id: 7, x: 30, y: 15, size: 3, delay: 0.6, type: 'edge', label: 'DATA_FEED' },
+    { id: 8, x: 70, y: 85, size: 5, delay: 0.7, type: 'edge', label: 'MONETIZATION' },
+    { id: 9, x: 10, y: 50, size: 7, delay: 0.8, type: 'core', label: 'CREATIVE_GEN' },
+    { id: 10, x: 90, y: 40, size: 4, delay: 0.9, type: 'edge', label: 'SCALE_UNIT' },
   ];
 
   const connections = [
-    { from: 0, to: 4, type: 'primary' },
-    { from: 1, to: 4, type: 'primary' },
-    { from: 2, to: 4, type: 'primary' },
-    { from: 3, to: 4, type: 'primary' },
-    { from: 5, to: 1, type: 'secondary' },
-    { from: 6, to: 2, type: 'secondary' },
-    { from: 0, to: 2, type: 'secondary' },
-    { from: 3, to: 6, type: 'secondary' },
-    { from: 7, to: 0, type: 'secondary' },
-    { from: 8, to: 3, type: 'secondary' },
-    { from: 9, to: 5, type: 'secondary' },
-    { from: 10, to: 3, type: 'secondary' },
-    { from: 11, to: 4, type: 'primary' },
-    { from: 12, to: 4, type: 'primary' },
-    { from: 13, to: 1, type: 'secondary' },
-    { from: 14, to: 2, type: 'secondary' },
+    { from: 0, to: 4, type: 'primary', curve: 'M 20 30 Q 35 30 50 45' },
+    { from: 1, to: 4, type: 'primary', curve: 'M 40 70 Q 40 55 50 45' },
+    { from: 2, to: 4, type: 'primary', curve: 'M 60 20 Q 50 20 50 45' },
+    { from: 3, to: 4, type: 'primary', curve: 'M 80 60 Q 65 60 50 45' },
+    { from: 5, to: 1, type: 'secondary', curve: 'M 15 80 Q 25 80 40 70' },
+    { from: 6, to: 2, type: 'secondary', curve: 'M 85 15 Q 75 15 60 20' },
+    { from: 9, to: 0, type: 'secondary', curve: 'M 10 50 Q 15 40 20 30' },
+    { from: 10, to: 3, type: 'secondary', curve: 'M 90 40 Q 85 50 80 60' },
+    { from: 7, to: 2, type: 'secondary', curve: 'M 30 15 Q 45 15 60 20' },
+    { from: 8, to: 3, type: 'secondary', curve: 'M 70 85 Q 75 75 80 60' },
   ];
 
   return (
-    <div className="relative w-full aspect-[3/4] bg-brand-grey overflow-hidden shadow-2xl group rounded-[48px]">
-      <div className="absolute inset-0 bg-gradient-to-br from-white via-brand-grey to-white opacity-40"></div>
+    <div className="relative w-full aspect-square lg:aspect-[4/5] group">
+      {/* Background Glow */}
+      <div className="absolute inset-0 bg-brand-red/5 blur-[120px] rounded-full scale-75 animate-pulse"></div>
       
       {/* Background Grid */}
-      <div className="absolute inset-0 opacity-[0.05] pointer-events-none" style={{ backgroundImage: 'radial-gradient(#000 0.5px, transparent 0.5px)', backgroundSize: '20px 20px' }}></div>
+      <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: 'linear-gradient(#000 1px, transparent 1px), linear-gradient(90deg, #000 1px, transparent 1px)', backgroundSize: '40px 40px' }}></div>
 
       <svg viewBox="0 0 100 100" className="w-full h-full relative z-10">
         <defs>
           <radialGradient id="nodeGradient" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
-            <stop offset="0%" stopColor="#D32F2F" stopOpacity="0.5" />
+            <stop offset="0%" stopColor="#D32F2F" stopOpacity="0.4" />
             <stop offset="100%" stopColor="#D32F2F" stopOpacity="0" />
           </radialGradient>
           <filter id="glow">
-            <feGaussianBlur stdDeviation="1.2" result="coloredBlur" />
+            <feGaussianBlur stdDeviation="1.5" result="coloredBlur" />
             <feMerge>
               <feMergeNode in="coloredBlur" />
               <feMergeNode in="SourceGraphic" />
@@ -255,30 +258,28 @@ const NetworkVisual = () => {
           </filter>
         </defs>
         
-        {/* Connection Lines */}
+        {/* Connection Paths */}
         {connections.map((conn, i) => (
           <g key={`conn-${i}`}>
-            <motion.line
-              x1={nodes[conn.from].x}
-              y1={nodes[conn.from].y}
-              x2={nodes[conn.to].x}
-              y2={nodes[conn.to].y}
+            <motion.path
+              d={conn.curve}
+              fill="none"
               stroke="#D32F2F"
-              strokeWidth={conn.type === 'primary' ? "0.2" : "0.1"}
+              strokeWidth={conn.type === 'primary' ? "0.25" : "0.15"}
               strokeOpacity={conn.type === 'primary' ? "0.2" : "0.1"}
               initial={{ pathLength: 0, opacity: 0 }}
               animate={{ 
                 pathLength: 1, 
-                opacity: [0.3, 0.5, 0.3]
+                opacity: [0.2, 0.4, 0.2]
               }}
               transition={{ 
-                pathLength: { duration: 4, delay: i * 0.1, repeat: Infinity, repeatType: "reverse", ease: "easeInOut" },
-                opacity: { duration: 3, repeat: Infinity, repeatType: "reverse", ease: "easeInOut", delay: i * 0.2 }
+                pathLength: { duration: 4, delay: i * 0.2, repeat: Infinity, repeatType: "reverse", ease: "easeInOut" },
+                opacity: { duration: 3, repeat: Infinity, repeatType: "reverse", ease: "easeInOut", delay: i * 0.3 }
               }}
             />
-            {/* Data Particles */}
+            {/* Data Flow Particles */}
             <motion.circle
-              r={conn.type === 'primary' ? "0.4" : "0.2"}
+              r={conn.type === 'primary' ? "0.5" : "0.3"}
               fill="#D32F2F"
               initial={{ offsetDistance: "0%", opacity: 0 }}
               animate={{ 
@@ -286,11 +287,11 @@ const NetworkVisual = () => {
                 opacity: [0, 1, 0]
               }}
               transition={{ 
-                offsetDistance: { duration: conn.type === 'primary' ? 3 : 5, delay: i * 0.4, repeat: Infinity, ease: "linear" },
-                opacity: { duration: 1, repeat: Infinity, repeatDelay: 1 }
+                offsetDistance: { duration: conn.type === 'primary' ? 4 : 6, delay: i * 0.5, repeat: Infinity, ease: "linear" },
+                opacity: { duration: 2, repeat: Infinity, repeatDelay: 1 }
               }}
               style={{
-                offsetPath: `path('M ${nodes[conn.from].x} ${nodes[conn.from].y} L ${nodes[conn.to].x} ${nodes[conn.to].y}')`,
+                offsetPath: `path('${conn.curve}')`,
               }}
             />
           </g>
@@ -299,39 +300,79 @@ const NetworkVisual = () => {
         {/* Nodes */}
         {nodes.map((node, i) => (
           <g key={`node-${i}`}>
+            {/* Halo */}
             <motion.circle
               cx={node.x}
               cy={node.y}
-              r={node.size / 2.5}
+              r={node.size / 2}
               fill="url(#nodeGradient)"
-              initial={{ scale: 0.8, opacity: 0.1 }}
+              initial={{ scale: 0.8, opacity: 0 }}
               animate={{ 
-                scale: node.type === 'hub' ? [1, 1.2, 1] : [0.9, 1.1, 0.9], 
-                opacity: node.type === 'hub' ? [0.2, 0.4, 0.2] : [0.1, 0.3, 0.1]
+                scale: [1, 1.3, 1], 
+                opacity: [0.1, 0.3, 0.1]
               }}
               transition={{ 
-                scale: { duration: node.type === 'hub' ? 3 : 5, delay: node.delay, repeat: Infinity, ease: "easeInOut" },
-                opacity: { duration: node.type === 'hub' ? 3 : 5, delay: node.delay, repeat: Infinity, ease: "easeInOut" }
+                duration: node.type === 'hub' ? 4 : 6, 
+                delay: node.delay, 
+                repeat: Infinity, 
+                ease: "easeInOut" 
               }}
               filter="url(#glow)"
             />
+            {/* Core */}
             <motion.circle
               cx={node.x}
               cy={node.y}
-              r={node.type === 'hub' ? "0.6" : "0.3"}
-              fill="#D32F2F"
+              r={node.type === 'hub' ? "0.8" : "0.4"}
+              fill={node.type === 'hub' ? "#D32F2F" : "#0A0A0A"}
               initial={{ opacity: 0 }}
               animate={{ 
-                opacity: [1, 0.4, 1],
-                scale: node.type === 'core' ? [1, 1.2, 1] : 1
+                opacity: [1, 0.6, 1],
+                scale: node.type === 'hub' ? [1, 1.4, 1] : 1
               }}
               transition={{ 
-                opacity: { duration: 2, repeat: Infinity, repeatType: "reverse", ease: "easeInOut", delay: node.delay },
-                scale: { duration: 2, repeat: Infinity, repeatType: "reverse", ease: "easeInOut", delay: node.delay }
+                duration: 3, 
+                repeat: Infinity, 
+                repeatType: "reverse", 
+                ease: "easeInOut", 
+                delay: node.delay 
               }}
             />
+            {/* Label */}
+            <text
+              x={node.x}
+              y={node.y + (node.size / 2) + 4}
+              textAnchor="middle"
+              className="font-mono text-[2.5px] fill-brand-black/30 uppercase tracking-[0.2em]"
+            >
+              {node.label}
+            </text>
           </g>
         ))}
+
+        {/* Orbital Rings for Hub */}
+        <motion.circle
+          cx="50"
+          cy="45"
+          r="10"
+          stroke="#D32F2F"
+          strokeWidth="0.05"
+          strokeDasharray="1 2"
+          fill="none"
+          animate={{ rotate: 360 }}
+          transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+        />
+        <motion.circle
+          cx="50"
+          cy="45"
+          r="15"
+          stroke="#0A0A0A"
+          strokeWidth="0.05"
+          strokeDasharray="2 4"
+          fill="none"
+          animate={{ rotate: -360 }}
+          transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
+        />
 
         {/* Pulsing Radar Wave */}
         <motion.circle
@@ -341,42 +382,42 @@ const NetworkVisual = () => {
           stroke="#D32F2F"
           strokeWidth="0.1"
           fill="none"
-          animate={{ r: [0, 60], opacity: [0.3, 0] }}
-          transition={{ duration: 4, repeat: Infinity, ease: "easeOut" }}
+          animate={{ r: [0, 80], opacity: [0.4, 0] }}
+          transition={{ duration: 5, repeat: Infinity, ease: "easeOut" }}
         />
       </svg>
       
       {/* Overlay Text Details */}
-      <div className="absolute inset-0 p-12 flex flex-col justify-between pointer-events-none z-20">
+      <div className="absolute inset-0 p-10 flex flex-col justify-between pointer-events-none z-20">
         <div className="flex justify-between items-start">
-          <div className="font-mono text-[6px] md:text-[7px] uppercase tracking-[0.5em] text-brand-black/20 leading-loose">
-            <span className="text-brand-red/40">●</span> Protocol: KYNZO_OS_v4<br />
-            <span className="text-brand-red/40">●</span> Status: Syncing_Ecosystem<br />
-            <span className="text-brand-red/40">●</span> Load: Optimal_42.08
+          <div className="font-mono text-[7px] uppercase tracking-[0.4em] text-brand-black/30 leading-loose">
+            <span className="text-brand-red">●</span> KYNZO_ECOSYSTEM_MAPPING<br />
+            <span className="text-brand-red">●</span> NODE_STATUS: OPTIMAL<br />
+            <span className="text-brand-red">●</span> SYNC_FREQ: {syncStatus}Hz
           </div>
-          <div className="w-12 h-12 border-t border-r border-brand-red/10"></div>
+          <div className="w-10 h-10 border-t border-r border-brand-red/20"></div>
         </div>
         
-        <div className="flex flex-col items-center gap-2">
-          <div className="w-px h-16 bg-gradient-to-b from-transparent via-brand-red/20 to-transparent"></div>
-          <div className="font-mono text-[6px] uppercase tracking-[0.8em] text-brand-red/30">Network_Core</div>
+        <div className="flex flex-col items-center gap-3">
+          <div className="w-px h-20 bg-gradient-to-b from-transparent via-brand-red/30 to-transparent"></div>
+          <div className="font-mono text-[7px] uppercase tracking-[1em] text-brand-red/40 translate-x-[0.5em]">Central_Authority</div>
         </div>
 
         <div className="flex justify-between items-end">
-          <div className="w-12 h-12 border-b border-l border-brand-red/10"></div>
-          <div className="font-mono text-[6px] md:text-[7px] uppercase tracking-[0.5em] text-brand-black/20 text-right leading-loose">
-            IP_Mapping: Global_Scale<br />
-            Engine: Commercial_Reality<br />
+          <div className="w-10 h-10 border-b border-l border-brand-red/20"></div>
+          <div className="font-mono text-[7px] uppercase tracking-[0.4em] text-brand-black/30 text-right leading-loose">
+            IP_INTEGRATION: ACTIVE<br />
+            COMMERCIAL_ENGINE: ONLINE<br />
             © 2026_KYNZO_MEDIA
           </div>
         </div>
       </div>
 
       {/* Subtle Noise/Texture Overlay */}
-      <div className="absolute inset-0 opacity-[0.04] pointer-events-none bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] mix-blend-multiply"></div>
+      <div className="absolute inset-0 opacity-[0.03] pointer-events-none bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] mix-blend-multiply"></div>
       
       {/* Scanline Effect */}
-      <div className="absolute inset-0 pointer-events-none bg-gradient-to-b from-transparent via-brand-black/[0.02] to-transparent h-2 w-full animate-scanline"></div>
+      <div className="absolute inset-0 pointer-events-none bg-gradient-to-b from-transparent via-brand-black/[0.01] to-transparent h-4 w-full animate-scanline"></div>
     </div>
   );
 };
@@ -388,7 +429,7 @@ const Hero = () => {
   const rotate = useTransform(scrollY, [0, 1000], [0, 45]);
 
   return (
-    <header className="relative min-h-screen flex items-center pt-24 overflow-hidden bg-white">
+    <header className="relative min-h-screen flex items-center pt-32 pb-20 overflow-hidden bg-white">
       <div className="absolute inset-0 grid-bg opacity-40"></div>
       
       <div className="max-w-7xl mx-auto px-6 w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
@@ -432,33 +473,51 @@ const Hero = () => {
           </FadeInSection>
         </div>
 
-        <div className="lg:col-span-5 relative">
+        <div className="lg:col-span-5 relative lg:h-[600px] flex items-center justify-center">
           <FadeInSection delay={0.2}>
             <motion.div 
               style={{ y: y2 }}
-              animate={{ 
-                y: [0, -15, 0],
-              }}
-              transition={{ 
-                duration: 6, 
-                repeat: Infinity, 
-                ease: "easeInOut" 
-              }}
-              className="relative"
+              className="relative w-full max-w-md"
             >
               <NetworkVisual />
               
-              {/* Floating Decorative Elements */}
+              {/* Floating Decorative Elements - Reimagined */}
               <motion.div 
                 style={{ rotate }}
-                className="absolute -top-12 -right-12 w-48 h-48 border border-brand-red/10 rounded-full z-10"
+                className="absolute -top-20 -right-20 w-64 h-64 border border-brand-red/5 rounded-full z-0"
               ></motion.div>
-              <div className="absolute -bottom-10 -left-10 w-32 h-32 bg-brand-red z-30 flex items-center justify-center p-6 shadow-xl">
-                <div className="text-center">
-                  <span className="text-white font-display font-bold text-4xl leading-none block">26+</span>
-                  <span className="text-white text-[8px] font-bold uppercase tracking-widest mt-1 block">Years of <br />Expertise</span>
+              
+              <motion.div 
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                className="absolute -bottom-10 -left-10 z-30 flex items-center gap-6"
+              >
+                <div className="h-24 w-px bg-brand-red"></div>
+                <div>
+                  <span className="text-brand-black font-display font-bold text-6xl leading-none block tracking-tighter">26<span className="text-brand-red">+</span></span>
+                  <span className="text-gray-500 text-[10px] font-bold uppercase tracking-[0.4em] mt-2 block leading-relaxed">Years of <br />Global Expertise</span>
                 </div>
-              </div>
+              </motion.div>
+
+              {/* Dynamic Floating Nodes - Reimagined as minimalist data points */}
+              <motion.div 
+                animate={{ y: [0, -15, 0] }}
+                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                className="absolute top-0 -left-16 z-20 hidden xl:flex items-center gap-4"
+              >
+                <div className="w-10 h-px bg-brand-red/30"></div>
+                <div className="font-mono text-[9px] uppercase tracking-[0.3em] text-brand-black/40">Real_Time_Sync</div>
+              </motion.div>
+
+              <motion.div 
+                animate={{ y: [0, 15, 0] }}
+                transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+                className="absolute bottom-1/3 -right-16 z-20 hidden xl:flex items-center gap-4"
+              >
+                <div className="font-mono text-[9px] uppercase tracking-[0.3em] text-brand-black/40">IP_Monetization</div>
+                <div className="w-10 h-px bg-brand-red/30"></div>
+              </motion.div>
             </motion.div>
           </FadeInSection>
         </div>
