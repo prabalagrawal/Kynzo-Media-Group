@@ -128,58 +128,6 @@ const Counter: React.FC<{ value: number, duration?: number, suffix?: string, del
   return <span ref={ref}>{count}{suffix}</span>;
 };
 
-const GlitchOverlay = () => (
-  <div className="absolute inset-0 pointer-events-none z-20 overflow-hidden opacity-[0.15]">
-    <motion.div 
-      animate={{ 
-        opacity: [0, 0.8, 0, 1, 0],
-        x: [0, -10, 10, -5, 0],
-        clipPath: [
-          "inset(0 0 0 0)",
-          "inset(10% 0 60% 0)",
-          "inset(70% 0 15% 0)",
-          "inset(30% 0 40% 0)",
-          "inset(0 0 0 0)"
-        ]
-      }}
-      transition={{ 
-        duration: 0.15, 
-        repeat: Infinity, 
-        repeatDelay: 2,
-        ease: "linear"
-      }}
-      className="absolute inset-0 bg-brand-red/5"
-    />
-    <motion.div 
-      animate={{ 
-        opacity: [0, 0.8, 0, 1, 0],
-        y: [0, 150, 300, 100, 0],
-        height: ["1px", "2px", "1px", "3px", "1px"]
-      }}
-      transition={{ 
-        duration: 0.15, 
-        repeat: Infinity, 
-        repeatDelay: 1.5,
-        ease: "linear"
-      }}
-      className="absolute top-0 left-0 w-full bg-brand-red"
-    />
-    <motion.div 
-      animate={{ 
-        opacity: [0, 0.5, 0],
-        x: [-20, 20, -10]
-      }}
-      transition={{ 
-        duration: 0.1, 
-        repeat: Infinity, 
-        repeatDelay: 4.5,
-        ease: "linear"
-      }}
-      className="absolute top-1/2 left-0 w-full h-1/4 bg-brand-red/5"
-    />
-  </div>
-);
-
 const TypingText: React.FC<{ children: ReactNode, className?: string, tag?: 'h1' | 'h2' | 'h3' | 'div', delay?: number }> = ({ children, className, tag: Tag = 'h1', delay = 0 }) => {
   const container = {
     hidden: { opacity: 1 },
@@ -286,8 +234,7 @@ const NetworkVisual = () => {
   ];
 
   return (
-    <div className="relative w-full aspect-[3/4] bg-brand-grey overflow-hidden shadow-2xl group rounded-[48px] animate-glitch-subtle">
-      <GlitchOverlay />
+    <div className="relative w-full aspect-[3/4] bg-brand-grey overflow-hidden shadow-2xl group rounded-[48px]">
       <div className="absolute inset-0 bg-gradient-to-br from-white via-brand-grey to-white opacity-40"></div>
       
       {/* Background Grid */}
@@ -322,13 +269,11 @@ const NetworkVisual = () => {
               initial={{ pathLength: 0, opacity: 0 }}
               animate={{ 
                 pathLength: 1, 
-                opacity: [0.3, 0.5, 0.3, 0.8, 0.3],
-                x: [0, 0.1, -0.1, 0]
+                opacity: [0.3, 0.5, 0.3]
               }}
               transition={{ 
                 pathLength: { duration: 4, delay: i * 0.1, repeat: Infinity, repeatType: "reverse", ease: "easeInOut" },
-                opacity: { duration: 0.2, repeat: Infinity, repeatDelay: 5 + (i % 5) },
-                x: { duration: 0.1, repeat: Infinity, repeatDelay: 8 + (i % 7) }
+                opacity: { duration: 3, repeat: Infinity, repeatType: "reverse", ease: "easeInOut", delay: i * 0.2 }
               }}
             />
             {/* Data Particles */}
@@ -338,13 +283,11 @@ const NetworkVisual = () => {
               initial={{ offsetDistance: "0%", opacity: 0 }}
               animate={{ 
                 offsetDistance: "100%", 
-                opacity: [0, 1, 0, 1, 0],
-                scale: [1, 1.5, 1]
+                opacity: [0, 1, 0]
               }}
               transition={{ 
                 offsetDistance: { duration: conn.type === 'primary' ? 3 : 5, delay: i * 0.4, repeat: Infinity, ease: "linear" },
-                opacity: { duration: 0.1, repeat: Infinity, repeatDelay: 2 + (i % 3) },
-                scale: { duration: 0.1, repeat: Infinity, repeatDelay: 4 + (i % 4) }
+                opacity: { duration: 1, repeat: Infinity, repeatDelay: 1 }
               }}
               style={{
                 offsetPath: `path('M ${nodes[conn.from].x} ${nodes[conn.from].y} L ${nodes[conn.to].x} ${nodes[conn.to].y}')`,
@@ -364,15 +307,11 @@ const NetworkVisual = () => {
               initial={{ scale: 0.8, opacity: 0.1 }}
               animate={{ 
                 scale: node.type === 'hub' ? [1, 1.2, 1] : [0.9, 1.1, 0.9], 
-                opacity: node.type === 'hub' ? [0.2, 0.4, 0.2] : [0.1, 0.3, 0.1],
-                x: [0, 0.2, -0.2, 0],
-                y: [0, -0.2, 0.2, 0]
+                opacity: node.type === 'hub' ? [0.2, 0.4, 0.2] : [0.1, 0.3, 0.1]
               }}
               transition={{ 
                 scale: { duration: node.type === 'hub' ? 3 : 5, delay: node.delay, repeat: Infinity, ease: "easeInOut" },
-                opacity: { duration: node.type === 'hub' ? 3 : 5, delay: node.delay, repeat: Infinity, ease: "easeInOut" },
-                x: { duration: 0.1, repeat: Infinity, repeatDelay: 4 + (i % 5) },
-                y: { duration: 0.1, repeat: Infinity, repeatDelay: 6 + (i % 4) }
+                opacity: { duration: node.type === 'hub' ? 3 : 5, delay: node.delay, repeat: Infinity, ease: "easeInOut" }
               }}
               filter="url(#glow)"
             />
@@ -383,14 +322,12 @@ const NetworkVisual = () => {
               fill="#D32F2F"
               initial={{ opacity: 0 }}
               animate={{ 
-                opacity: [1, 0.4, 1, 0.8, 1],
-                scale: node.type === 'core' ? [1, 1.5, 1, 1.2, 1] : 1,
-                x: [0, 0.1, -0.1, 0]
+                opacity: [1, 0.4, 1],
+                scale: node.type === 'core' ? [1, 1.2, 1] : 1
               }}
               transition={{ 
-                opacity: { duration: 0.15, repeat: Infinity, repeatDelay: 4 + (i % 6), ease: "linear", delay: node.delay },
-                scale: { duration: 0.15, repeat: Infinity, repeatDelay: 4 + (i % 6), ease: "linear", delay: node.delay },
-                x: { duration: 0.05, repeat: Infinity, repeatDelay: 3 + (i % 5) }
+                opacity: { duration: 2, repeat: Infinity, repeatType: "reverse", ease: "easeInOut", delay: node.delay },
+                scale: { duration: 2, repeat: Infinity, repeatType: "reverse", ease: "easeInOut", delay: node.delay }
               }}
             />
           </g>

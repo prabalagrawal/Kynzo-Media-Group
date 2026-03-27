@@ -16,22 +16,8 @@
   100% { transform: translateY(1000%); }
 }
 
-@keyframes glitch {
-  0% { transform: translate(0); clip-path: inset(0 0 0 0); }
-  10% { transform: translate(-1px, -1px); clip-path: inset(10% 0 30% 0); }
-  20% { transform: translate(1px, 1px); clip-path: inset(40% 0 10% 0); }
-  30% { transform: translate(-1px, 1px); clip-path: inset(60% 0 20% 0); }
-  40% { transform: translate(1px, -1px); clip-path: inset(20% 0 50% 0); }
-  50% { transform: translate(0); clip-path: inset(0 0 0 0); }
-  100% { transform: translate(0); clip-path: inset(0 0 0 0); }
-}
-
 .animate-scanline {
   animation: scanline 8s linear infinite;
-}
-
-.animate-glitch-subtle {
-  animation: glitch 2s step-end infinite;
 }
 
 @layer base {
