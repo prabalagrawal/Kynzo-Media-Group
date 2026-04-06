@@ -21,7 +21,11 @@ import {
   ArrowUp,
   MoveRight,
   Plus,
-  ArrowUpRight
+  ArrowUpRight,
+  Clapperboard,
+  MonitorPlay,
+  Handshake,
+  ShoppingBag
 } from "lucide-react";
 
 const FadeInSection: React.FC<{ children: ReactNode, delay?: number }> = ({ children, delay = 0 }) => (
@@ -442,24 +446,24 @@ const Hero = () => {
               </div>
               
               <TypingText className="text-7xl md:text-8xl lg:text-9xl font-display font-bold leading-[0.85] mb-10 tracking-tighter" delay={0.5}>
-                Architecting the <br />
-                <span className="serif italic font-normal text-brand-red">Commercial</span> <br />
-                Future of <span className="text-brand-black">IP.</span>
+                Where Entertainment <br />
+                <span className="serif italic font-normal text-brand-red">IP Meets</span> <br />
+                Commercial <span className="text-brand-black">Momentum.</span>
               </TypingText>
               
               <p className="text-xl text-gray-600 mb-12 leading-relaxed max-w-lg font-light">
-                We partner with IP owners, studios, and investors to transform creative vision into high-growth, revenue-driven media businesses.
+                Kynzo Media Group helps rights holders, studios, platforms, brands, and investors turn strong ideas into scalable media and licensing opportunities.
               </p>
               
               <div className="mb-8">
-                <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-gray-400 mb-4">For those looking to unlock full commercial potential</p>
+                <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-gray-400 mb-4">Strategic partnerships. IP development. Licensing. Production support. Media growth.</p>
                 <div className="flex flex-wrap gap-6">
                   <motion.button 
                     whileHover={{ y: -4, backgroundColor: "#D32F2F" }}
                     whileTap={{ scale: 0.98 }}
                     className="relative bg-brand-black text-white px-10 py-5 font-bold uppercase tracking-[0.3em] text-[11px] transition-all shadow-2xl shadow-brand-black/10 flex items-center gap-3 group overflow-hidden"
                   >
-                    <span className="relative z-10">Discuss Your IP</span>
+                    <span className="relative z-10">Start a Conversation</span>
                     <ArrowUpRight className="w-4 h-4 relative z-10 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
                     <div className="absolute inset-0 bg-white/5 translate-y-full group-hover:translate-y-0 transition-transform duration-500" />
                   </motion.button>
@@ -602,6 +606,37 @@ const TechnicalFrame = ({ children, title }: { children: ReactNode; title: strin
   </div>
 );
 
+const IntroSection = () => (
+  <section className="py-32 px-6 bg-white border-t border-brand-black/5">
+    <div className="max-w-7xl mx-auto">
+      <FadeInSection>
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+          <div className="lg:col-span-5">
+            <div className="flex items-center gap-4 mb-8">
+              <div className="w-12 h-px bg-brand-red"></div>
+              <span className="text-brand-red font-bold uppercase tracking-[0.4em] text-[10px]">Introduction</span>
+            </div>
+            <TypingText tag="h2" className="text-5xl md:text-6xl font-bold mb-8 tracking-tighter leading-tight">
+              Creative at heart. <br />
+              <span className="serif italic font-normal text-brand-red">Powered by intelligence.</span>
+            </TypingText>
+          </div>
+          <div className="lg:col-span-7">
+            <div className="space-y-8">
+              <p className="text-2xl text-gray-600 font-light leading-relaxed">
+                Kynzo Media Group is a strategic and execution partner built for today’s evolving entertainment landscape. We help shape, position, package, produce, and grow IP with a clear focus on commercial readiness, partner alignment, and long-term value creation.
+              </p>
+              <p className="text-xl text-gray-500 font-light leading-relaxed">
+                At the intersection of content, commerce, and connectivity, Kynzo brings together industry insight, strategic thinking, and hands-on execution to move opportunities from concept to scale.
+              </p>
+            </div>
+          </div>
+        </div>
+      </FadeInSection>
+    </div>
+  </section>
+);
+
 const StrategicInsight = () => {
   return (
     <section className="py-32 bg-brand-black text-white px-6 relative overflow-hidden">
@@ -613,15 +648,15 @@ const StrategicInsight = () => {
             <FadeInSection>
               <div className="flex items-center gap-4 mb-8">
                 <div className="w-12 h-px bg-brand-red"></div>
-                <span className="text-brand-red font-bold uppercase tracking-[0.4em] text-[10px]">Strategic Insight</span>
+                <span className="text-brand-red font-bold uppercase tracking-[0.4em] text-[10px]">Value Proposition</span>
               </div>
               <TypingText tag="h2" className="text-6xl md:text-7xl lg:text-8xl font-display font-bold leading-[0.9] mb-12 tracking-tighter">
-                Content is the <span className="serif italic font-normal text-brand-red">Spark.</span> <br />
-                Strategy is the <br />
-                <span className="text-white">Engine.</span>
+                From idea to <br />
+                <span className="serif italic font-normal text-brand-red">market-ready</span> <br />
+                opportunity.
               </TypingText>
               <p className="text-2xl md:text-3xl text-gray-400 font-light leading-relaxed max-w-2xl">
-                Strong content alone does not guarantee commercial success. Gaps in <span className="text-white font-medium">positioning</span>, <span className="text-white font-medium">partnerships</span>, and <span className="text-white font-medium">monetization</span> are what limit growth.
+                Strong content does not automatically become a strong business. The journey from creation to audience to monetisation is often fragmented.
               </p>
             </FadeInSection>
           </div>
@@ -632,7 +667,7 @@ const StrategicInsight = () => {
                 <div className="relative pl-12 border-l border-brand-red/30 py-4">
                   <div className="absolute top-0 left-0 w-2 h-2 bg-brand-red -translate-x-[4.5px]"></div>
                   <p className="text-lg text-gray-300 font-light leading-relaxed mb-6">
-                    Kynzo understands these critical gaps. We are built to solve them, providing the strategic thinking required to navigate complex media ecosystems.
+                    Kynzo helps bridge that gap — aligning strategy, packaging, production, partnerships, and commercial planning to make IP more coherent, scalable, and actionable.
                   </p>
                   <div className="grid grid-cols-2 gap-8">
                     <div>
@@ -672,31 +707,38 @@ const CapabilitiesSection = () => {
   const capabilities = [
     {
       id: "01",
-      title: "Strategic Positioning",
-      desc: "We define the commercial architecture of your IP, ensuring it is positioned to capture maximum value in a competitive global marketplace.",
+      title: "IP Strategy & Positioning",
+      desc: "Sharper proposition, clearer audience relevance, stronger franchise potential.",
       components: ["Market Analysis", "Brand Positioning", "Audience Profiling", "Competitive Strategy"],
       image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=1200",
     },
     {
       id: "02",
-      title: "Ecosystem Activation",
-      desc: "We provide direct access to the global media ecosystem, engineering the partnerships and distribution deals required to scale IP across territories.",
-      components: ["Global Distribution", "Platform Partnerships", "Territory Expansion", "Network Relations"],
+      title: "Packaging & Executive Support",
+      desc: "Market-facing packaging, executive production support, production management, and turnkey production execution designed to improve readiness, coordination, and delivery.",
+      components: ["Production Support", "Market Packaging", "Delivery Management", "Turnkey Execution"],
       image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=1200",
     },
     {
       id: "03",
-      title: "Commercial Engineering",
-      desc: "We design and negotiate complex commercial frameworks that protect the long-term integrity of your IP while unlocking sustainable revenue.",
-      components: ["Deal Structuring", "Contract Negotiation", "Royalty Management", "Legal Frameworks"],
+      title: "Licensing & Strategic Partnerships",
+      desc: "Connecting IP with broadcasters, platforms, distributors, licensees, co-production partners, and brands.",
+      components: ["Broadcaster Relations", "Platform Deals", "Co-production", "Brand Partnerships"],
       image: "https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&q=80&w=1200",
     },
     {
       id: "04",
-      title: "Franchise Growth",
-      desc: "We transform entertainment properties into multi-dimensional franchises, engineering ancillary revenue streams that drive long-term commercial value.",
-      components: ["Merchandising", "Digital Monetization", "Ancillary Rights", "Franchise Growth"],
+      title: "Digital-First IP Development",
+      desc: "Building opportunities for a fragmented, multi-platform audience environment with discoverability, financing, and monetisation in mind.",
+      components: ["Multi-platform Strategy", "Discoverability", "Digital Financing", "Monetization"],
       image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1200",
+    },
+    {
+      id: "05",
+      title: "Brand & Revenue Expansion",
+      desc: "Extending value beyond launch through consumer products, brand collaborations, promotional tie-ins, and broader ecosystem growth.",
+      components: ["Consumer Products", "Brand Collaborations", "Promotional Tie-ins", "Ecosystem Growth"],
+      image: "https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&q=80&w=1200",
     }
   ];
 
@@ -710,17 +752,17 @@ const CapabilitiesSection = () => {
               <div className="lg:sticky lg:top-32">
                 <div className="flex items-center gap-3 mb-8">
                   <span className="w-8 h-px bg-brand-red"></span>
-                  <span className="text-brand-red font-bold uppercase tracking-[0.4em] text-[10px]">Our Capabilities</span>
+                  <span className="text-brand-red font-bold uppercase tracking-[0.4em] text-[10px]">What We Do</span>
                 </div>
                 
                 <TypingText tag="h2" className="text-6xl md:text-7xl font-display font-bold tracking-tighter mb-10 leading-[0.9]">
-                  Engineering <br />
-                  <span className="serif italic font-normal text-brand-red">Commercial</span> <br />
-                  Success.
+                  Strategic clarity <br />
+                  <span className="serif italic font-normal text-brand-red">for entertainment</span> <br />
+                  IP.
                 </TypingText>
                 
                 <p className="text-xl text-gray-500 font-light leading-relaxed max-w-md mb-12">
-                  We provide the strategic framework and industry access required to turn creative vision into business reality.
+                  We help clients define the right commercial narrative, identify the right partners, and build the right pathways to growth.
                 </p>
                 
                 <TechnicalFrame title={capabilities[hoveredIndex ?? 0].title}>
@@ -942,51 +984,89 @@ const ThoughtLeadership = () => {
 
 const WhoWeWorkWith = () => {
   const categories = [
-    "IP Owners & Licensors",
-    "Studios & Producers",
-    "Broadcasters & Platforms",
-    "Brands & Retailers",
-    "Strategic Investors"
+    {
+      title: "IP Owners and Licensors",
+      icon: <ShieldCheck className="w-6 h-6" />,
+      desc: "Protecting and positioning creative assets for global commercial scale."
+    },
+    {
+      title: "Studios and Producers",
+      icon: <Clapperboard className="w-6 h-6" />,
+      desc: "Engineering franchise models and multi-platform revenue streams."
+    },
+    {
+      title: "Broadcasters and Platforms",
+      icon: <MonitorPlay className="w-6 h-6" />,
+      desc: "Curating and activating high-potential content for global audiences."
+    },
+    {
+      title: "Distributors and Partners",
+      icon: <Handshake className="w-6 h-6" />,
+      desc: "Bridging the gap between content creation and global market access."
+    },
+    {
+      title: "Brands and Retailers",
+      icon: <ShoppingBag className="w-6 h-6" />,
+      desc: "Leveraging entertainment IP to drive consumer engagement and growth."
+    },
+    {
+      title: "Strategic Investors",
+      icon: <TrendingUp className="w-6 h-6" />,
+      desc: "Identifying and de-risking high-value media and entertainment investments."
+    }
   ];
 
   return (
-    <section className="py-32 bg-brand-grey px-6 relative overflow-hidden">
+    <section className="py-48 bg-brand-grey px-6 relative overflow-hidden">
       {/* Decorative Background Elements */}
       <div className="absolute top-0 left-1/4 w-px h-full bg-brand-black/5"></div>
       <div className="absolute top-0 right-1/4 w-px h-full bg-brand-black/5"></div>
       
       <div className="max-w-7xl mx-auto relative z-10">
         <FadeInSection>
-          <div className="flex flex-col items-center">
+          <div className="flex flex-col items-center mb-24">
             <div className="flex items-center gap-3 mb-12">
               <span className="w-8 h-px bg-brand-red/30"></span>
-              <span className="text-brand-red font-bold uppercase tracking-[0.4em] text-[10px]">Partnerships</span>
+              <span className="text-brand-red font-bold uppercase tracking-[0.4em] text-[10px]">Who We Work With</span>
               <span className="w-8 h-px bg-brand-red/30"></span>
             </div>
             
-            <TypingText tag="h2" className="text-center text-4xl md:text-5xl lg:text-6xl font-display font-bold tracking-tighter mb-20 max-w-3xl">
-              Partnering with the architects of <span className="serif italic font-normal text-brand-red">global entertainment.</span>
+            <TypingText tag="h2" className="text-center text-5xl md:text-6xl lg:text-7xl font-display font-bold tracking-tighter max-w-4xl leading-tight">
+              Designed for the full <br />
+              <span className="serif italic font-normal text-brand-red">entertainment ecosystem.</span>
             </TypingText>
+          </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-px bg-brand-black/10 w-full border border-brand-black/10">
-              {categories.map((cat, i) => (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-brand-black/10 w-full border border-brand-black/10">
+            {categories.map((cat, i) => (
+              <motion.div 
+                key={i}
+                whileHover={{ backgroundColor: "#FFFFFF" }}
+                className="bg-brand-grey p-12 flex flex-col items-start group transition-all duration-500 cursor-default min-h-[320px] relative overflow-hidden"
+              >
+                <div className="absolute top-0 right-0 p-8 opacity-[0.03] group-hover:opacity-[0.08] transition-opacity">
+                  <span className="font-display font-bold text-9xl leading-none">0{i + 1}</span>
+                </div>
+                
+                <div className="w-14 h-14 bg-white flex items-center justify-center mb-10 shadow-sm group-hover:bg-brand-red group-hover:text-white transition-all duration-500 group-hover:scale-110 group-hover:rotate-3">
+                  {cat.icon}
+                </div>
+                
+                <h3 className="text-2xl font-display font-bold text-brand-black mb-4 group-hover:text-brand-red transition-colors leading-tight max-w-[200px]">
+                  {cat.title}
+                </h3>
+                
+                <p className="text-gray-500 font-light leading-relaxed text-sm max-w-[240px] opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0">
+                  {cat.desc}
+                </p>
+
                 <motion.div 
-                  key={i}
-                  whileHover={{ backgroundColor: "#FFFFFF" }}
-                  className="bg-brand-grey p-12 flex flex-col items-center justify-center text-center group transition-colors cursor-default h-64"
-                >
-                  <span className="font-mono text-[8px] text-brand-red/40 mb-6 group-hover:text-brand-red transition-colors">0{i + 1}</span>
-                  <div className="text-lg md:text-xl font-display font-bold text-brand-black/60 group-hover:text-brand-black transition-colors leading-tight">
-                    {cat}
-                  </div>
-                  <motion.div 
-                    initial={{ scaleX: 0 }}
-                    whileHover={{ scaleX: 1 }}
-                    className="w-12 h-px bg-brand-red mt-6 origin-left"
-                  ></motion.div>
-                </motion.div>
-              ))}
-            </div>
+                  initial={{ scaleX: 0 }}
+                  whileHover={{ scaleX: 1 }}
+                  className="w-12 h-1 bg-brand-red mt-auto origin-left"
+                ></motion.div>
+              </motion.div>
+            ))}
           </div>
         </FadeInSection>
       </div>
@@ -1139,7 +1219,7 @@ const Leadership = () => (
               <div className="aspect-square md:aspect-[4/5] bg-brand-grey overflow-hidden relative shadow-2xl rounded-[40px]">
                 <img 
                   src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=1000" 
-                  alt="Modern corporate architecture" 
+                  alt="Jayakumar Prabhakaran Nair" 
                   className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-1000"
                   referrerPolicy="no-referrer"
                 />
@@ -1165,30 +1245,27 @@ const Leadership = () => (
           <div className="lg:col-span-7">
             <div className="flex items-center gap-4 mb-8">
               <div className="w-12 h-px bg-brand-red"></div>
-              <span className="text-brand-red font-bold uppercase tracking-[0.4em] text-[10px]">Leadership & Credibility</span>
+              <span className="text-brand-red font-bold uppercase tracking-[0.4em] text-[10px]">Leadership Snapshot</span>
             </div>
             <TypingText tag="h2" className="text-6xl md:text-8xl font-bold mb-12 tracking-tighter leading-[0.85]">
-              Grounded in <br />
+              Led by <br />
               <span className="serif italic font-normal text-brand-red">Experience.</span> <br />
-              Driven by Results.
+              Built on Credibility.
             </TypingText>
-            <p className="text-2xl text-gray-600 mb-12 leading-relaxed font-light max-w-2xl">
-              Kynzo Media Group is led by industry veterans who have spent over two decades at the intersection of creativity and commerce, holding senior leadership roles across the global media landscape.
+            <p className="text-2xl text-gray-600 mb-6 leading-relaxed font-light max-w-2xl">
+              Kynzo Media Group is led by <span className="text-brand-black font-bold">Jayakumar Prabhakaran Nair</span>, a senior media and entertainment executive with more than 26 years of experience across animation, kids and family entertainment, licensing, distribution, strategic partnerships, and business growth.
+            </p>
+            <p className="text-xl text-gray-500 mb-12 leading-relaxed font-light max-w-2xl">
+              His experience spans the full value chain of content creation, commercialisation, and long-term franchise building.
             </p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div className="p-10 bg-white border-t-4 border-brand-red shadow-xl hover:shadow-2xl transition-all group">
-                <div className="w-10 h-10 bg-brand-grey flex items-center justify-center mb-6 group-hover:bg-brand-red group-hover:text-white transition-colors">
-                  <Briefcase className="w-5 h-5" />
-                </div>
-                <h4 className="text-xl font-bold mb-4 group-hover:text-brand-red transition-colors uppercase tracking-tight">Strategic Authority</h4>
-                <p className="text-gray-500 font-light leading-relaxed">Deep exposure to global studios, platforms, and investors, providing a unique perspective on IP monetization.</p>
+                <h4 className="text-xl font-bold mb-2 group-hover:text-brand-red transition-colors uppercase tracking-tight">Founder</h4>
+                <p className="text-gray-500 font-light leading-relaxed">Kynzo Media Group</p>
               </div>
               <div className="p-10 bg-white border-t-4 border-brand-black shadow-xl hover:shadow-2xl transition-all group">
-                <div className="w-10 h-10 bg-brand-grey flex items-center justify-center mb-6 group-hover:bg-brand-red group-hover:text-white transition-colors">
-                  <Network className="w-5 h-5" />
-                </div>
-                <h4 className="text-xl font-bold mb-4 group-hover:text-brand-red transition-colors uppercase tracking-tight">Global Connectivity</h4>
-                <p className="text-gray-500 font-light leading-relaxed">Direct, high-level relationships with key decision-makers across the entire media and entertainment ecosystem.</p>
+                <h4 className="text-xl font-bold mb-2 group-hover:text-brand-red transition-colors uppercase tracking-tight">Former CEO</h4>
+                <p className="text-gray-500 font-light leading-relaxed">Toonz Media Group</p>
               </div>
             </div>
           </div>
@@ -1200,10 +1277,9 @@ const Leadership = () => (
 
 const WhyKynzo = () => {
   const points = [
-    { title: "Strategic Commercial Thinking", icon: <BarChart3 className="w-5 h-5" /> },
-    { title: "High-Level Ecosystem Access", icon: <Users className="w-5 h-5" /> },
-    { title: "Outcome-Driven Monetization", icon: <Zap className="w-5 h-5" /> },
-    { title: "Consulting-Led Partnership", icon: <ShieldCheck className="w-5 h-5" /> }
+    { title: "Integrated Thinking", icon: <BarChart3 className="w-5 h-5" />, desc: "A connected view across content, audience, commerce, and rights." },
+    { title: "Commercial Perspective", icon: <Users className="w-5 h-5" />, desc: "Real industry experience shaping growth, partnerships, and monetisation." },
+    { title: "Execution Flexibility", icon: <Zap className="w-5 h-5" />, desc: "From advisory and packaging to production support and market activation." }
   ];
 
   return (
@@ -1214,18 +1290,21 @@ const WhyKynzo = () => {
             <div className="lg:col-span-5">
               <div className="flex items-center gap-4 mb-8">
                 <div className="w-12 h-px bg-brand-red"></div>
-                <span className="text-brand-red font-bold uppercase tracking-[0.4em] text-[10px]">The Kynzo Advantage</span>
+                <span className="text-brand-red font-bold uppercase tracking-[0.4em] text-[10px]">Why Kynzo</span>
               </div>
-              <TypingText tag="h2" className="text-5xl md:text-6xl font-bold mb-10 tracking-tighter leading-tight">Why strategic partners <br /><span className="serif italic font-normal text-brand-red">choose us.</span></TypingText>
-              <p className="text-xl text-gray-600 leading-relaxed font-light">We move beyond execution to provide the strategic rigor and market intelligence required to build lasting commercial value in the media industry.</p>
+              <TypingText tag="h2" className="text-5xl md:text-6xl font-bold mb-10 tracking-tighter leading-tight">Built for clients who <br /><span className="serif italic font-normal text-brand-red">need more than advice.</span></TypingText>
+              <p className="text-xl text-gray-600 leading-relaxed font-light">Kynzo combines strategic perspective with practical execution support to help entertainment businesses move with clarity and confidence.</p>
             </div>
-            <div className="lg:col-span-7 grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="lg:col-span-7 grid grid-cols-1 md:grid-cols-1 gap-6">
               {points.map((point, i) => (
-                <div key={i} className="bg-white p-10 flex flex-col items-start gap-6 hover:shadow-2xl transition-all group border-b-2 border-transparent hover:border-brand-red">
-                  <div className="text-brand-red p-4 bg-brand-grey group-hover:bg-brand-red group-hover:text-white transition-colors">
+                <div key={i} className="bg-white p-10 flex items-start gap-8 hover:shadow-2xl transition-all group border-l-4 border-transparent hover:border-brand-red">
+                  <div className="text-brand-red p-4 bg-brand-grey group-hover:bg-brand-red group-hover:text-white transition-colors shrink-0">
                     {cloneElement(point.icon as ReactElement, { "aria-hidden": "true" })}
                   </div>
-                  <h3 className="text-xl font-bold group-hover:text-brand-red transition-colors uppercase tracking-tight">{point.title}</h3>
+                  <div>
+                    <h3 className="text-xl font-bold group-hover:text-brand-red transition-colors uppercase tracking-tight mb-2">{point.title}</h3>
+                    <p className="text-gray-500 font-light">{point.desc}</p>
+                  </div>
                 </div>
               ))}
             </div>
@@ -1309,12 +1388,13 @@ const FinalCTA = () => {
           <div className="flex flex-col items-center">
             <div className="w-20 h-px bg-brand-red mb-12"></div>
             <TypingText tag="h2" className="text-6xl md:text-8xl lg:text-9xl font-display font-bold tracking-tighter leading-[0.85] mb-10">
-              Ready to scale your <br />
-              <span className="serif italic font-normal text-brand-red">Entertainment IP?</span>
+              Think bigger. <br />
+              Package smarter. <br />
+              <span className="serif italic font-normal text-brand-red">Grow stronger.</span>
             </TypingText>
             
             <p className="text-xl md:text-2xl text-gray-400 font-light max-w-2xl mb-16 leading-relaxed">
-              For IP owners and studios seeking to bridge the gap between creative vision and global commercial success.
+              Kynzo helps entertainment IP become market-ready, partner-ready, and revenue-aware — with the strategic discipline and execution support needed to unlock long-term value.
             </p>
 
             <motion.button
@@ -1323,7 +1403,7 @@ const FinalCTA = () => {
               className="group relative px-16 py-6 bg-brand-red overflow-hidden shadow-2xl flex items-center gap-4 mx-auto"
             >
               <div className="absolute inset-0 bg-black/5 translate-y-full group-hover:translate-y-0 transition-transform duration-500"></div>
-              <span className="relative z-10 text-[11px] font-bold uppercase tracking-[0.4em] text-white group-hover:text-brand-black transition-colors">Discuss Your IP</span>
+              <span className="relative z-10 text-[11px] font-bold uppercase tracking-[0.4em] text-white group-hover:text-brand-black transition-colors">Let’s Build What’s Next</span>
               <ArrowUpRight className="w-5 h-5 relative z-10 text-white group-hover:text-brand-black transition-all group-hover:translate-x-1 group-hover:-translate-y-1" />
             </motion.button>
             
@@ -1389,6 +1469,7 @@ export default function App() {
     <div className="min-h-screen noise-bg">
       <Navbar />
       <Hero />
+      <IntroSection />
       <StrategicInsight />
       <CapabilitiesSection />
       <ThoughtLeadership />
