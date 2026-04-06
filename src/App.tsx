@@ -78,7 +78,7 @@ const Navbar = () => {
             className="relative bg-brand-black text-white px-8 py-3 transition-all flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.2em] overflow-hidden group"
             aria-label="Start a conversation with Kynzo Media Group"
           >
-            <span className="relative z-10">Connect</span> 
+            <span className="relative z-10">Start a Conversation</span> 
             <ArrowUpRight className="w-3.5 h-3.5 relative z-10 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             <div className="absolute inset-0 bg-white/10 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
           </motion.button>
@@ -442,32 +442,36 @@ const Hero = () => {
               </div>
               
               <TypingText className="text-7xl md:text-8xl lg:text-9xl font-display font-bold leading-[0.85] mb-10 tracking-tighter" delay={0.5}>
-                Turning <span className="serif italic font-normal text-brand-red">IP</span> into <br />
-                Global <span className="text-brand-black">Powerhouses.</span>
+                Architecting the <br />
+                <span className="serif italic font-normal text-brand-red">Commercial</span> <br />
+                Future of <span className="text-brand-black">IP.</span>
               </TypingText>
               
               <p className="text-xl text-gray-600 mb-12 leading-relaxed max-w-lg font-light">
-                We bridge the gap between creative vision and commercial reality, engineering scalable media businesses for the modern era.
+                We partner with IP owners, studios, and investors to transform creative vision into high-growth, revenue-driven media businesses.
               </p>
               
-              <div className="flex flex-wrap gap-6">
-                <motion.button 
-                  whileHover={{ y: -4, backgroundColor: "#D32F2F" }}
-                  whileTap={{ scale: 0.98 }}
-                  className="relative bg-brand-black text-white px-10 py-5 font-bold uppercase tracking-[0.3em] text-[11px] transition-all shadow-2xl shadow-brand-black/10 flex items-center gap-3 group overflow-hidden"
-                >
-                  <span className="relative z-10">Start a Conversation</span>
-                  <ArrowUpRight className="w-4 h-4 relative z-10 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-                  <div className="absolute inset-0 bg-white/5 translate-y-full group-hover:translate-y-0 transition-transform duration-500" />
-                </motion.button>
-                <motion.a 
-                  href="#capabilities"
-                  whileHover={{ x: 5 }}
-                  className="relative flex items-center gap-4 px-8 py-5 font-bold uppercase tracking-[0.3em] text-[11px] group border border-brand-black/10 hover:border-brand-red transition-all"
-                >
-                  <span className="group-hover:text-brand-red transition-colors">Our Approach</span>
-                  <ArrowRight className="w-4 h-4 text-brand-red group-hover:translate-x-2 transition-transform" />
-                </motion.a>
+              <div className="mb-8">
+                <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-gray-400 mb-4">For those looking to unlock full commercial potential</p>
+                <div className="flex flex-wrap gap-6">
+                  <motion.button 
+                    whileHover={{ y: -4, backgroundColor: "#D32F2F" }}
+                    whileTap={{ scale: 0.98 }}
+                    className="relative bg-brand-black text-white px-10 py-5 font-bold uppercase tracking-[0.3em] text-[11px] transition-all shadow-2xl shadow-brand-black/10 flex items-center gap-3 group overflow-hidden"
+                  >
+                    <span className="relative z-10">Discuss Your IP</span>
+                    <ArrowUpRight className="w-4 h-4 relative z-10 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                    <div className="absolute inset-0 bg-white/5 translate-y-full group-hover:translate-y-0 transition-transform duration-500" />
+                  </motion.button>
+                  <motion.a 
+                    href="#capabilities"
+                    whileHover={{ x: 5 }}
+                    className="relative flex items-center gap-4 px-8 py-5 font-bold uppercase tracking-[0.3em] text-[11px] group border border-brand-black/10 hover:border-brand-red transition-all"
+                  >
+                    <span className="group-hover:text-brand-red transition-colors">Our Strategic Approach</span>
+                    <ArrowRight className="w-4 h-4 text-brand-red group-hover:translate-x-2 transition-transform" />
+                  </motion.a>
+                </div>
               </div>
             </div>
           </FadeInSection>
@@ -598,46 +602,64 @@ const TechnicalFrame = ({ children, title }: { children: ReactNode; title: strin
   </div>
 );
 
-const ProblemSection = () => {
+const StrategicInsight = () => {
   return (
     <section className="py-32 bg-brand-black text-white px-6 relative overflow-hidden">
       <div className="absolute inset-0 grid-bg opacity-5"></div>
       <SparkField />
       <div className="max-w-7xl mx-auto relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
-          <FadeInSection>
-            <div className="relative">
-              <TypingText tag="h2" className="text-6xl md:text-8xl font-display font-bold leading-[0.9] mb-12 tracking-tighter">
-                Creativity <br />
-                is the <span className="serif italic font-normal text-brand-red underline underline-offset-8">Spark.</span> <br />
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-20 items-start">
+          <div className="lg:col-span-7">
+            <FadeInSection>
+              <div className="flex items-center gap-4 mb-8">
+                <div className="w-12 h-px bg-brand-red"></div>
+                <span className="text-brand-red font-bold uppercase tracking-[0.4em] text-[10px]">Strategic Insight</span>
+              </div>
+              <TypingText tag="h2" className="text-6xl md:text-7xl lg:text-8xl font-display font-bold leading-[0.9] mb-12 tracking-tighter">
+                Content is the <span className="serif italic font-normal text-brand-red">Spark.</span> <br />
                 Strategy is the <br />
                 <span className="text-white">Engine.</span>
               </TypingText>
-              <div className="w-32 h-2 bg-brand-red"></div>
-            </div>
-          </FadeInSection>
-          
-          <FadeInSection delay={0.2}>
-            <div className="space-y-12">
-              <p className="text-2xl text-gray-400 font-light leading-relaxed">
-                In a fragmented media landscape, great ideas often fail to reach their full potential due to a lack of commercial structure.
+              <p className="text-2xl md:text-3xl text-gray-400 font-light leading-relaxed max-w-2xl">
+                Strong content alone does not guarantee commercial success. Gaps in <span className="text-white font-medium">positioning</span>, <span className="text-white font-medium">partnerships</span>, and <span className="text-white font-medium">monetization</span> are what limit growth.
               </p>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
-                <div className="border-t border-white/20 pt-6">
-                  <span className="text-brand-red font-display font-bold text-4xl mb-4 block">
-                    <Counter value={40} suffix="%" delay={0.2} />
-                  </span>
-                  <p className="text-sm text-gray-500 uppercase tracking-widest font-bold">Unrealised Revenue in Media IP</p>
+            </FadeInSection>
+          </div>
+          
+          <div className="lg:col-span-5 pt-12 lg:pt-32">
+            <FadeInSection delay={0.2}>
+              <div className="space-y-16">
+                <div className="relative pl-12 border-l border-brand-red/30 py-4">
+                  <div className="absolute top-0 left-0 w-2 h-2 bg-brand-red -translate-x-[4.5px]"></div>
+                  <p className="text-lg text-gray-300 font-light leading-relaxed mb-6">
+                    Kynzo understands these critical gaps. We are built to solve them, providing the strategic thinking required to navigate complex media ecosystems.
+                  </p>
+                  <div className="grid grid-cols-2 gap-8">
+                    <div>
+                      <span className="text-brand-red font-display font-bold text-5xl mb-2 block">
+                        <Counter value={40} suffix="%" delay={0.2} />
+                      </span>
+                      <p className="text-[9px] text-gray-500 uppercase tracking-widest font-bold leading-tight">Unrealised Revenue <br />in Media IP</p>
+                    </div>
+                    <div>
+                      <span className="text-brand-red font-display font-bold text-5xl mb-2 block">
+                        <Counter value={85} suffix="%" delay={0.4} />
+                      </span>
+                      <p className="text-[9px] text-gray-500 uppercase tracking-widest font-bold leading-tight">Fail to Scale <br />Globally</p>
+                    </div>
+                  </div>
                 </div>
-                <div className="border-t border-white/20 pt-6">
-                  <span className="text-brand-red font-display font-bold text-4xl mb-4 block">
-                    <Counter value={85} suffix="%" delay={0.4} />
-                  </span>
-                  <p className="text-sm text-gray-500 uppercase tracking-widest font-bold">Fail to Scale Globally</p>
-                </div>
+                
+                <motion.button 
+                  whileHover={{ x: 10 }}
+                  className="flex items-center gap-4 text-[11px] font-bold uppercase tracking-[0.3em] text-brand-red group"
+                >
+                  <span>Close the Gap</span>
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-2 transition-transform" />
+                </motion.button>
               </div>
-            </div>
-          </FadeInSection>
+            </FadeInSection>
+          </div>
         </div>
       </div>
     </section>
@@ -650,29 +672,29 @@ const CapabilitiesSection = () => {
   const capabilities = [
     {
       id: "01",
-      title: "IP Strategy",
-      desc: "We define the core value proposition and global market fit for entertainment properties, ensuring they are built for scale from day one.",
+      title: "Strategic Positioning",
+      desc: "We define the commercial architecture of your IP, ensuring it is positioned to capture maximum value in a competitive global marketplace.",
       components: ["Market Analysis", "Brand Positioning", "Audience Profiling", "Competitive Strategy"],
       image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=1200",
     },
     {
       id: "02",
-      title: "Market Access",
-      desc: "Our deep network provides direct entry into premium global platforms, broadcasters, and distribution networks across all major territories.",
+      title: "Ecosystem Activation",
+      desc: "We provide direct access to the global media ecosystem, engineering the partnerships and distribution deals required to scale IP across territories.",
       components: ["Global Distribution", "Platform Partnerships", "Territory Expansion", "Network Relations"],
       image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=1200",
     },
     {
       id: "03",
-      title: "Licensing",
-      desc: "We engineer high-impact licensing deals and commercial frameworks that protect IP integrity while maximizing long-term revenue.",
+      title: "Commercial Engineering",
+      desc: "We design and negotiate complex commercial frameworks that protect the long-term integrity of your IP while unlocking sustainable revenue.",
       components: ["Deal Structuring", "Contract Negotiation", "Royalty Management", "Legal Frameworks"],
       image: "https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&q=80&w=1200",
     },
     {
       id: "04",
-      title: "Revenue Scaling",
-      desc: "Transforming single-hit properties into multi-category franchises through strategic merchandising, digital growth, and ancillary rights.",
+      title: "Franchise Growth",
+      desc: "We transform entertainment properties into multi-dimensional franchises, engineering ancillary revenue streams that drive long-term commercial value.",
       components: ["Merchandising", "Digital Monetization", "Ancillary Rights", "Franchise Growth"],
       image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1200",
     }
@@ -825,6 +847,99 @@ const CapabilitiesSection = () => {
   );
 };
 
+const ThoughtLeadership = () => {
+  const articles = [
+    {
+      category: "IP Strategy",
+      title: "The Shift from Content to Commerce: Why IP Architecture Matters",
+      date: "March 24, 2026",
+      excerpt: "In an era of platform saturation, the most successful media properties are those built with a commercial-first mindset.",
+      image: "https://images.unsplash.com/photo-1454165833767-027ffea9e778?auto=format&fit=crop&q=80&w=800"
+    },
+    {
+      category: "Market Trends",
+      title: "Navigating the Global Streaming Landscape in 2026",
+      date: "March 12, 2026",
+      excerpt: "How regional IP owners are leveraging niche platforms to bypass traditional distribution bottlenecks.",
+      image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80&w=800"
+    },
+    {
+      category: "Monetization",
+      title: "Beyond Licensing: The Future of Ancillary Revenue Streams",
+      date: "February 28, 2026",
+      excerpt: "Exploring the untapped potential of digital assets and community-driven monetization for legacy IP.",
+      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800"
+    }
+  ];
+
+  return (
+    <section className="py-32 px-6 bg-white border-t border-brand-black/5">
+      <div className="max-w-7xl mx-auto">
+        <FadeInSection>
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-20 gap-8">
+            <div className="max-w-2xl">
+              <div className="flex items-center gap-3 mb-8">
+                <span className="w-8 h-px bg-brand-red"></span>
+                <span className="text-brand-red font-bold uppercase tracking-[0.4em] text-[10px]">Thought Leadership</span>
+              </div>
+              <TypingText tag="h2" className="text-5xl md:text-6xl font-display font-bold tracking-tighter leading-tight">
+                Insights for the <br />
+                <span className="serif italic font-normal text-brand-red">Modern Ecosystem.</span>
+              </TypingText>
+            </div>
+            <motion.button 
+              whileHover={{ x: 10 }}
+              className="flex items-center gap-4 text-[11px] font-bold uppercase tracking-[0.3em] text-brand-black group"
+            >
+              <span>View All Insights</span>
+              <ArrowRight className="w-4 h-4 group-hover:text-brand-red transition-colors" />
+            </motion.button>
+          </div>
+        </FadeInSection>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+          {articles.map((article, i) => (
+            <FadeInSection key={i} delay={i * 0.1}>
+              <motion.div 
+                whileHover={{ y: -10 }}
+                className="group cursor-pointer"
+              >
+                <div className="relative aspect-[16/10] overflow-hidden mb-8 rounded-2xl bg-brand-grey">
+                  <img 
+                    src={article.image} 
+                    alt={article.title}
+                    className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-105 group-hover:scale-100"
+                    referrerPolicy="no-referrer"
+                  />
+                  <div className="absolute top-4 left-4">
+                    <span className="bg-white/90 backdrop-blur-md px-4 py-1.5 text-[9px] font-bold uppercase tracking-widest text-brand-black shadow-sm">
+                      {article.category}
+                    </span>
+                  </div>
+                </div>
+                <div className="flex items-center gap-4 mb-4">
+                  <span className="text-[10px] font-bold uppercase tracking-widest text-brand-red">{article.date}</span>
+                  <div className="h-px flex-1 bg-brand-black/5"></div>
+                </div>
+                <h3 className="text-2xl font-display font-bold mb-4 group-hover:text-brand-red transition-colors leading-snug">
+                  {article.title}
+                </h3>
+                <p className="text-gray-500 font-light leading-relaxed mb-8 line-clamp-2">
+                  {article.excerpt}
+                </p>
+                <div className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.2em] group-hover:gap-4 transition-all">
+                  <span>Read Article</span>
+                  <ArrowUpRight className="w-4 h-4 text-brand-red" />
+                </div>
+              </motion.div>
+            </FadeInSection>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
 const WhoWeWorkWith = () => {
   const categories = [
     "IP Owners & Licensors",
@@ -849,8 +964,8 @@ const WhoWeWorkWith = () => {
               <span className="w-8 h-px bg-brand-red/30"></span>
             </div>
             
-            <TypingText tag="h2" className="text-center text-4xl md:text-5xl font-display font-bold tracking-tighter mb-20 max-w-2xl">
-              Trusted by the architects of <span className="serif italic font-normal text-brand-red">modern media.</span>
+            <TypingText tag="h2" className="text-center text-4xl md:text-5xl lg:text-6xl font-display font-bold tracking-tighter mb-20 max-w-3xl">
+              Partnering with the architects of <span className="serif italic font-normal text-brand-red">global entertainment.</span>
             </TypingText>
 
             <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-px bg-brand-black/10 w-full border border-brand-black/10">
@@ -1014,11 +1129,12 @@ const UseCases = () => {
 };
 
 const Leadership = () => (
-  <section id="leadership" className="py-32 px-6 bg-brand-grey overflow-hidden">
-    <div className="max-w-7xl mx-auto">
+  <section id="leadership" className="py-48 px-6 bg-brand-grey overflow-hidden relative">
+    <div className="absolute top-0 left-0 w-full h-full opacity-[0.03] pointer-events-none" style={{ backgroundImage: 'radial-gradient(#000 1px, transparent 1px)', backgroundSize: '40px 40px' }}></div>
+    <div className="max-w-7xl mx-auto relative z-10">
       <FadeInSection>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
-          <div className="relative group">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-24 items-center">
+          <div className="lg:col-span-5 relative group">
             <TechnicalFrame title="Leadership_Vision">
               <div className="aspect-square md:aspect-[4/5] bg-brand-grey overflow-hidden relative shadow-2xl rounded-[40px]">
                 <img 
@@ -1029,13 +1145,6 @@ const Leadership = () => (
                 />
                 <div className="absolute inset-0 bg-brand-red/10 mix-blend-multiply opacity-0 group-hover:opacity-100 transition-opacity"></div>
                 
-                {/* Blueprint Overlay */}
-                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none">
-                  <div className="absolute inset-0" style={{ backgroundImage: 'linear-gradient(rgba(211, 47, 47, 0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(211, 47, 47, 0.1) 1px, transparent 1px)', backgroundSize: '40px 40px' }}></div>
-                  <div className="absolute top-1/2 left-0 right-0 h-px bg-brand-red/20"></div>
-                  <div className="absolute top-0 bottom-0 left-1/2 w-px bg-brand-red/20"></div>
-                </div>
-
                 <div className="absolute inset-0 flex items-center justify-center p-12">
                   <div className="relative w-full h-full border border-white/20 flex items-center justify-center">
                     <div className="absolute top-0 left-0 w-20 h-20 border-t-2 border-l-2 border-brand-red"></div>
@@ -1048,25 +1157,38 @@ const Leadership = () => (
                 </div>
               </div>
             </TechnicalFrame>
-            <div className="absolute -bottom-10 -right-10 w-56 h-56 bg-brand-red p-10 flex flex-col justify-end text-white shadow-2xl transform group-hover:translate-x-4 group-hover:translate-y-4 transition-transform z-40">
-              <span className="text-5xl font-bold mb-2">26+</span>
-              <span className="text-[10px] font-bold uppercase tracking-widest leading-tight">Years of Global Media Experience</span>
+            <div className="absolute -bottom-10 -right-10 w-64 h-64 bg-brand-black p-12 flex flex-col justify-end text-white shadow-2xl transform group-hover:translate-x-4 group-hover:translate-y-4 transition-transform z-40">
+              <span className="text-brand-red text-6xl font-bold mb-4">26+</span>
+              <span className="text-[11px] font-bold uppercase tracking-[0.4em] leading-relaxed">Years of Strategic Leadership in Global Media</span>
             </div>
           </div>
-          <div>
-            <span className="text-brand-red font-bold uppercase tracking-[0.4em] text-[10px] mb-6 block">Leadership</span>
-            <TypingText tag="h2" className="text-5xl md:text-7xl font-bold mb-10 tracking-tighter leading-[0.9]">Credibility built on <br /><span className="serif italic font-normal">Results.</span></TypingText>
-            <p className="text-xl text-gray-600 mb-10 leading-relaxed font-light">
-              Kynzo Media Group is led by industry veterans with over 26 years of experience in the global media and entertainment landscape.
+          <div className="lg:col-span-7">
+            <div className="flex items-center gap-4 mb-8">
+              <div className="w-12 h-px bg-brand-red"></div>
+              <span className="text-brand-red font-bold uppercase tracking-[0.4em] text-[10px]">Leadership & Credibility</span>
+            </div>
+            <TypingText tag="h2" className="text-6xl md:text-8xl font-bold mb-12 tracking-tighter leading-[0.85]">
+              Grounded in <br />
+              <span className="serif italic font-normal text-brand-red">Experience.</span> <br />
+              Driven by Results.
+            </TypingText>
+            <p className="text-2xl text-gray-600 mb-12 leading-relaxed font-light max-w-2xl">
+              Kynzo Media Group is led by industry veterans who have spent over two decades at the intersection of creativity and commerce, holding senior leadership roles across the global media landscape.
             </p>
-            <div className="grid grid-cols-1 gap-6">
-              <div className="p-8 bg-white border-l-4 border-brand-red hover:shadow-2xl transition-all group">
-                <h4 className="font-bold mb-2 group-hover:text-brand-red transition-colors">Strategic Vision</h4>
-                <p className="text-sm text-gray-500 font-light">Anticipating market shifts before they happen, aligning IP with global trends.</p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div className="p-10 bg-white border-t-4 border-brand-red shadow-xl hover:shadow-2xl transition-all group">
+                <div className="w-10 h-10 bg-brand-grey flex items-center justify-center mb-6 group-hover:bg-brand-red group-hover:text-white transition-colors">
+                  <Briefcase className="w-5 h-5" />
+                </div>
+                <h4 className="text-xl font-bold mb-4 group-hover:text-brand-red transition-colors uppercase tracking-tight">Strategic Authority</h4>
+                <p className="text-gray-500 font-light leading-relaxed">Deep exposure to global studios, platforms, and investors, providing a unique perspective on IP monetization.</p>
               </div>
-              <div className="p-8 bg-white border-l-4 border-brand-black hover:shadow-2xl transition-all group">
-                <h4 className="font-bold mb-2 group-hover:text-brand-red transition-colors">Global Network</h4>
-                <p className="text-sm text-gray-500 font-light">Direct access to key stakeholders, platforms, and studios worldwide.</p>
+              <div className="p-10 bg-white border-t-4 border-brand-black shadow-xl hover:shadow-2xl transition-all group">
+                <div className="w-10 h-10 bg-brand-grey flex items-center justify-center mb-6 group-hover:bg-brand-red group-hover:text-white transition-colors">
+                  <Network className="w-5 h-5" />
+                </div>
+                <h4 className="text-xl font-bold mb-4 group-hover:text-brand-red transition-colors uppercase tracking-tight">Global Connectivity</h4>
+                <p className="text-gray-500 font-light leading-relaxed">Direct, high-level relationships with key decision-makers across the entire media and entertainment ecosystem.</p>
               </div>
             </div>
           </div>
@@ -1078,28 +1200,32 @@ const Leadership = () => (
 
 const WhyKynzo = () => {
   const points = [
-    { title: "Strategic + commercial thinking", icon: <BarChart3 className="w-5 h-5" /> },
-    { title: "Strong industry relationships", icon: <Users className="w-5 h-5" /> },
-    { title: "Focus on monetisation and value", icon: <Zap className="w-5 h-5" /> },
-    { title: "Flexible engagement model", icon: <ShieldCheck className="w-5 h-5" /> }
+    { title: "Strategic Commercial Thinking", icon: <BarChart3 className="w-5 h-5" /> },
+    { title: "High-Level Ecosystem Access", icon: <Users className="w-5 h-5" /> },
+    { title: "Outcome-Driven Monetization", icon: <Zap className="w-5 h-5" /> },
+    { title: "Consulting-Led Partnership", icon: <ShieldCheck className="w-5 h-5" /> }
   ];
 
   return (
-    <section className="py-32 px-6 bg-brand-grey">
+    <section className="py-48 px-6 bg-brand-grey border-t border-brand-black/5">
       <div className="max-w-7xl mx-auto">
         <FadeInSection>
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-16">
-            <div className="lg:col-span-1">
-              <TypingText tag="h2" className="text-4xl font-bold mb-6">Why Kynzo</TypingText>
-              <p className="text-gray-600 leading-relaxed">We bridge the gap between creative IP and commercial success through a unique blend of strategic rigor and market access.</p>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-24 items-center">
+            <div className="lg:col-span-5">
+              <div className="flex items-center gap-4 mb-8">
+                <div className="w-12 h-px bg-brand-red"></div>
+                <span className="text-brand-red font-bold uppercase tracking-[0.4em] text-[10px]">The Kynzo Advantage</span>
+              </div>
+              <TypingText tag="h2" className="text-5xl md:text-6xl font-bold mb-10 tracking-tighter leading-tight">Why strategic partners <br /><span className="serif italic font-normal text-brand-red">choose us.</span></TypingText>
+              <p className="text-xl text-gray-600 leading-relaxed font-light">We move beyond execution to provide the strategic rigor and market intelligence required to build lasting commercial value in the media industry.</p>
             </div>
-            <div className="lg:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="lg:col-span-7 grid grid-cols-1 md:grid-cols-2 gap-6">
               {points.map((point, i) => (
-                <div key={i} className="bg-white p-8 flex items-start gap-6 hover:shadow-xl transition-all group">
-                  <div className="text-brand-red mt-1 p-3 bg-brand-grey group-hover:bg-brand-red group-hover:text-white transition-colors">
+                <div key={i} className="bg-white p-10 flex flex-col items-start gap-6 hover:shadow-2xl transition-all group border-b-2 border-transparent hover:border-brand-red">
+                  <div className="text-brand-red p-4 bg-brand-grey group-hover:bg-brand-red group-hover:text-white transition-colors">
                     {cloneElement(point.icon as ReactElement, { "aria-hidden": "true" })}
                   </div>
-                  <h3 className="text-lg font-bold group-hover:text-brand-red transition-colors">{point.title}</h3>
+                  <h3 className="text-xl font-bold group-hover:text-brand-red transition-colors uppercase tracking-tight">{point.title}</h3>
                 </div>
               ))}
             </div>
@@ -1182,13 +1308,13 @@ const FinalCTA = () => {
         <FadeInSection>
           <div className="flex flex-col items-center">
             <div className="w-20 h-px bg-brand-red mb-12"></div>
-            <TypingText tag="h2" className="text-6xl md:text-8xl font-display font-bold tracking-tighter leading-[0.9] mb-10">
+            <TypingText tag="h2" className="text-6xl md:text-8xl lg:text-9xl font-display font-bold tracking-tighter leading-[0.85] mb-10">
               Ready to scale your <br />
               <span className="serif italic font-normal text-brand-red">Entertainment IP?</span>
             </TypingText>
             
-            <p className="text-xl text-gray-400 font-light max-w-2xl mb-16 leading-relaxed">
-              Let's discuss how we can turn your creative vision into a commercially scalable media business.
+            <p className="text-xl md:text-2xl text-gray-400 font-light max-w-2xl mb-16 leading-relaxed">
+              For IP owners and studios seeking to bridge the gap between creative vision and global commercial success.
             </p>
 
             <motion.button
@@ -1197,7 +1323,7 @@ const FinalCTA = () => {
               className="group relative px-16 py-6 bg-brand-red overflow-hidden shadow-2xl flex items-center gap-4 mx-auto"
             >
               <div className="absolute inset-0 bg-black/5 translate-y-full group-hover:translate-y-0 transition-transform duration-500"></div>
-              <span className="relative z-10 text-[11px] font-bold uppercase tracking-[0.4em] text-white group-hover:text-brand-black transition-colors">Start a Conversation</span>
+              <span className="relative z-10 text-[11px] font-bold uppercase tracking-[0.4em] text-white group-hover:text-brand-black transition-colors">Discuss Your IP</span>
               <ArrowUpRight className="w-5 h-5 relative z-10 text-white group-hover:text-brand-black transition-all group-hover:translate-x-1 group-hover:-translate-y-1" />
             </motion.button>
             
@@ -1263,8 +1389,9 @@ export default function App() {
     <div className="min-h-screen noise-bg">
       <Navbar />
       <Hero />
-      <ProblemSection />
+      <StrategicInsight />
       <CapabilitiesSection />
+      <ThoughtLeadership />
       <WhoWeWorkWith />
       <ProcessSection />
       <UseCases />
